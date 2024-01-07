@@ -72,7 +72,7 @@ Begin
             0 .. 9:
                 ResultNum := ResultNum + IntToStr(CurentNum);
         Else
-            ResultNum := ResultNum + Chr(CurentNum - 10 + 65);
+            ResultNum := ResultNum + Chr(CurentNum Mod 10 + 65);
         End;
     End;
 
@@ -120,7 +120,7 @@ Begin
             0 .. 9:
                 Insert(IntToStr(ResNum), ResultStr, 2);
         Else
-            Insert(Chr(ResNum - 10 + 65), ResultStr, 2);
+            Insert(Chr(ResNum Mod 10 + 65), ResultStr, 2);
         End;
         Number := Number Div 16;
     End;
@@ -128,28 +128,74 @@ Begin
     DecimalToHexadecimal := ResultStr;
 End;
 
+Function HexadecimalToBinary(HexadecimalNum: String): String;
+Var
+    Step: Integer;
+    ResultStr: String;
+Begin
+    ResultStr := '';
+    For Step := Length(HexadecimalNum) DownTo 2 Do
+    Begin
+        Case HexadecimalNum[Step] Of
+            '0' .. '9':
+                Insert(DecimalToBinary(StrToInt(HexadecimalNum[Step])), ResultStr, 2);
+        Else
+            Insert(DecimalToBinary(Ord(HexadecimalNum[Step]) - 55), ResultStr, 2);
+        End;
+    End;
+
+    HexadecimalToBinary := ResultStr;
+End;
+
+Function HexadecimalToOctal(HexadecimalNum: String): String;
+Var
+    BinaryResult, ResultStr: String;
+Begin
+    BinaryResult := HexadecimalToBinary(HexadecimalNum);
+    ResultStr := BinaryToOctal(BinaryResult);
+
+    HexadecimalToOctal := ResultStr;
+End;
+
+Function HexadecimalToDecimal(HexadecimalNum: String): Integer;
+Var
+    BinaryResult: String;
+    ResultDec: Integer;
+Begin
+    BinaryResult := HexadecimalToBinary(HexadecimalNum);
+    ResultDec := BinaryToDecimal(BinaryResult);
+
+    HexadecimalToDecimal := ResultDec;
+End;
+
 Var
     BinaryNum: String;
     DecimalNum: Integer;
+    HexadecimalNum: String;
 
 Begin
-    BinaryNum := '11111';
+    BinaryNum := '11001';
     Writeln('Input Binary Number - ' + BinaryNum);
     Writeln('Binary To Decimal: ' + IntToStr(BinaryToDecimal(BinaryNum)));
     Writeln('Binary To Octal: ' + BinaryToOctal(BinaryNum));
     Writeln('Binary To Hexadecimal: ' + BinaryToHexadecimal(BinaryNum));
 
-    Writeln('-----------------------------');
+    Writeln('------------------------------');
 
-    DecimalNum := 31;
+    DecimalNum := 25;
     Writeln('Input Decimal Number - ' + IntToStr(DecimalNum));
     Writeln('Decimal To Binary: ' + DecimalToBinary(DecimalNum));
     Writeln('Decimal To Octal: ' + DecimalToOctal(DecimalNum));
     Writeln('Decimal To Hexadecimal: ' + DecimalToHexadecimal(DecimalNum));
 
-    Writeln('-----------------------------');
+    Writeln('------------------------------');
 
-    ///
+    HexadecimalNum := '$19';
+    Writeln('Input Hexadecimal Number - ' + HexadecimalNum);
+    Writeln('Hexadecimal To Binary: ' + HexadecimalToBinary(HexadecimalNum));
+    Writeln('Hexadecimal To Octal: ' + HexadecimalToOctal(HexadecimalNum));
+    Writeln('Hexadecimal To Decimal: ' + IntToStr(HexadecimalToDecimal(HexadecimalNum)));
+
     Readln;
 
 End.
