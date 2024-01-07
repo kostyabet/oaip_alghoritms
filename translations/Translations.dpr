@@ -81,7 +81,6 @@ End;
 
 Function DecimalToBinary(Number: Integer): String;
 Var
-    I: Integer;
     ResultStr: String;
 Begin
     ResultStr := '';
@@ -95,8 +94,38 @@ Begin
 End;
 
 Function DecimaltoOctal(Number: Integer): String;
+Var
+    ResultStr: String;
 Begin
-    
+    ResultStr := '';
+    While (Number >= 1) Do
+    Begin
+        Insert(IntToStr(Number Mod 8), ResultStr, 0);
+        Number := Number Div 8;
+    End;
+
+    DecimaltoOctal := ResultStr;
+End;
+
+Function DecimalToHexadecimal(Number: Integer): String;
+Var
+    ResultStr: String;
+    ResNum: Integer;
+Begin
+    ResultStr := '$';
+    While (Number >= 1) Do
+    Begin
+        ResNum := Number Mod 16;
+        Case ResNum Of
+            0 .. 9:
+                Insert(IntToStr(ResNum), ResultStr, 2);
+        Else
+            Insert(Chr(ResNum - 10 + 65), ResultStr, 2);
+        End;
+        Number := Number Div 16;
+    End;
+
+    DecimalToHexadecimal := ResultStr;
 End;
 
 Var
@@ -104,19 +133,23 @@ Var
     DecimalNum: Integer;
 
 Begin
-    BinaryNum := '11001';
+    BinaryNum := '11111';
     Writeln('Input Binary Number - ' + BinaryNum);
     Writeln('Binary To Decimal: ' + IntToStr(BinaryToDecimal(BinaryNum)));
     Writeln('Binary To Octal: ' + BinaryToOctal(BinaryNum));
     Writeln('Binary To Hexadecimal: ' + BinaryToHexadecimal(BinaryNum));
 
-    Writeln('----------------------------------------------------------------');
+    Writeln('-----------------------------');
 
-    DecimalNum := 25;
+    DecimalNum := 31;
     Writeln('Input Decimal Number - ' + IntToStr(DecimalNum));
     Writeln('Decimal To Binary: ' + DecimalToBinary(DecimalNum));
     Writeln('Decimal To Octal: ' + DecimalToOctal(DecimalNum));
+    Writeln('Decimal To Hexadecimal: ' + DecimalToHexadecimal(DecimalNum));
 
+    Writeln('-----------------------------');
+
+    ///
     Readln;
 
 End.
