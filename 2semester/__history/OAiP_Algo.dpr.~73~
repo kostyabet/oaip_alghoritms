@@ -27,8 +27,7 @@ Uses
 
   Директивы подпрограмм
     Inline - подставляется машинный код;
-    External - procedure ExternalProcedure; stdcall; external 'MyLibrary.dll';
-    Forward - опережающее описание.
+    
 *)
 
 (*
@@ -58,7 +57,7 @@ Uses
 
 *)
 
-Procedure CalcSum(N1, N2: Integer; Var Res: Integer);
+Procedure CalcSum(N1, N2: Integer; Var Res: Integer); Inline;
 Begin
     Res := N1 + N2;
 End;

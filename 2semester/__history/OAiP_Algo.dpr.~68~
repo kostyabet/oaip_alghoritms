@@ -24,25 +24,11 @@ Uses
   Локальные переменные - объявлены в каком-либо составном операторе и доступны в его пределах.
   Фактические параметры - то, что передаётся в подпрограмму.
   Формальные параметры - то, что принимается в подпрограмму. 
-
-  Директивы подпрограмм
-    Inline - подставляется машинный код;
-    External - procedure ExternalProcedure; stdcall; external 'MyLibrary.dll';
-    Forward - опережающее описание.
 *)
 
 (*
   // Фибоначи через рекурсию
-  Function Fibo(Num: Integer): Integer;
-  Begin
-  If Num < 0 Then
-  Fibo := 0
-  Else
-  If (Num <= 1) Then
-  Fibo := 1
-  Else
-  Fibo := Fibo(Num - 1) + Fibo(Num - 2);
-  End;  
+  
 *)
 
 (*
@@ -58,20 +44,19 @@ Uses
 
 *)
 
-Procedure CalcSum(N1, N2: Integer; Var Res: Integer);
+Function Fibo(Num: Integer): Integer;
 Begin
-    Res := N1 + N2;
+    If Num < 0 Then
+        Fibo := 0
+    Else
+        If (Num <= 1) Then
+            Fibo := 1
+        Else
+            Fibo := Fibo(Num - 1) + Fibo(Num - 2);
 End;
 
-Var
-    N1, N2, Res: Integer;
-
 Begin
-    N1 := 4;
-    N2 := 5;
-    Res := 0;
-    CalcSum(N1, N2, Res);
-    WriteLn('Sum is ', Res, '.');
-    Readln;
+    WriteLn(Fibo(4));
+    ReadLn;
 
 End.

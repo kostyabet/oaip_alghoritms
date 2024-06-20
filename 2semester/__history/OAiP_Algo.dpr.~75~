@@ -28,7 +28,7 @@ Uses
   Директивы подпрограмм
     Inline - подставляется машинный код;
     External - procedure ExternalProcedure; stdcall; external 'MyLibrary.dll';
-    Forward - опережающее описание.
+    Forward - опережающее описание
 *)
 
 (*

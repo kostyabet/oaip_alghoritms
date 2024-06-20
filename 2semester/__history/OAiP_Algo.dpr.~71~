@@ -26,9 +26,7 @@ Uses
   Формальные параметры - то, что принимается в подпрограмму. 
 
   Директивы подпрограмм
-    Inline - подставляется машинный код;
-    External - procedure ExternalProcedure; stdcall; external 'MyLibrary.dll';
-    Forward - опережающее описание.
+  
 *)
 
 (*
