@@ -89,6 +89,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="Unit1.pas">
+            <Form>/Unit2 in &apos;Unit2.pas&apos;;</Form>
+        </DCCReference>
+        <DCCReference Include="Unit2.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

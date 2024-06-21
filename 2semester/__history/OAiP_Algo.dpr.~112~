@@ -54,7 +54,28 @@ Begin
     Else
         Fact := 1;
 End;     
-    
+
+
+
+
+
+
+
+
+
+
+
+Type
+    R1 = Record
+        Int: Integer;
+    End;
+
+Var
+    Test: R1;
+
 Begin
+    Test.Im := 3.0;
+    Writeln(Test.Re);
     Readln;
+
 End.
