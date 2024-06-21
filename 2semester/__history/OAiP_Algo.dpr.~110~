@@ -54,7 +54,30 @@ Begin
     Else
         Fact := 1;
 End;     
-    
+
+
+
+
+
+
+
+
+
+
+
+Type
+    R1 = Record
+        Int: Integer;
+        case Boolean of
+            True: (Im: Real);
+            False: (Re: Real);
+    End;
+
+Var
+    Test: R1;
+
 Begin
+    \
     Readln;
+
 End.

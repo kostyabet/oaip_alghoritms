@@ -53,8 +53,36 @@ Begin
         Fact := Num * Fact(Num - 1)
     Else
         Fact := 1;
-End;     
-    
+End;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Type
+    R1 = Record
+        Int: Integer;
+    End;
+
+Var
+    Test: R1;
 Begin
+    Test.Int := 4;
+    Writeln(Test.Int);
     Readln;
+
 End.

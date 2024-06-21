@@ -54,7 +54,33 @@ Begin
     Else
         Fact := 1;
 End;     
-    
+
+
+
+
+
+
+
+
+
+
+
+Type
+    R1 = Record
+        Int: Integer;
+        Case Status: Boolean Of
+            True:
+                (Cost:Integer);
+            False:
+                (Width:Integer);
+    End;
+
+Var
+    Test: R1;
+
 Begin
+    Test.Int := 4;
+    Writeln(Test.Int);
     Readln;
+
 End.

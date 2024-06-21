@@ -54,6 +54,24 @@ Begin
     Else
         Fact := 1;
 End;     
+
+
+
+
+
+
+
+
+
+
+
+Type
+    R1 = Record
+        Int: Integer;
+    End;
+
+Var
+    Test: R1;
     
 Begin
     Readln;
