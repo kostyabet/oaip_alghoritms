@@ -32,7 +32,12 @@ Uses
   Inline - подставляется машинный код;
   External - procedure ExternalProcedure; stdcall; external 'MyLibrary.dll';
   Forward - опережающее описание.
+
+  Append(F); // открыть для дозаписи
+  Reset(F); // только для чтения
+  Rewrite(F); // только для записи
 *)
+
 
 //Фибоначи через рекурсию
 Function Fibo(Num: Integer): Integer;
@@ -53,8 +58,28 @@ Begin
         Fact := Num * Fact(Num - 1)
     Else
         Fact := 1;
-End;     
-    
+End;
+
+
+
+
+
+
+
+
+
+
+
+
+(* -------------------------------------------------------------------------- *)
+Var
+    F: TextFile;
+
 Begin
+    Assign(F, 'test.txt');
+    Rewrite(F);                          
+    Write(F, 8192);
+    Write(F, 2048);
+    Close(F);
     Readln;
 End.
