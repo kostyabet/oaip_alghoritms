@@ -53,7 +53,7 @@ Begin
         Fact := Num * Fact(Num - 1)
     Else
         Fact := 1;
-End;     
+End;
 
 
 
@@ -65,19 +65,28 @@ End;
 
 
 
-Type
-    R1 = Record
-        Int: Integer;
-        case Boolean of
-            True: (Im: Real);
-            False: (Re: Real);
-    End;
 
+(* -------------------------------------------------------------------------- *)
 Var
-    Test: R1;
+    F: TextFile;
 
 Begin
-    \
+    AssignFile(F, 'filename.txt');
+    Try
+        //Открываем файл для записи
+        Rewrite(F);
+        Try
+            //Записываем информацию в логический файл, которая выводится в консоль
+            Writeln(F, 'Hello, world!');
+            Writeln(F, 'This is a test message.');
+        Finally
+            //Закрываем файл
+            CloseFile(F);
+        End;
+    Except
+        On E: Exception Do
+            Writeln('Error: ', E.Message);
+    End;
     Readln;
 
 End.

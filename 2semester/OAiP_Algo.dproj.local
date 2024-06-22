@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.234,=E:\GitHub\oaip_alghoritms\2semester\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.759,E:\GitHub\oaip_alghoritms\2semester\OAiP_Algo.dproj=C:\Users\beten\OneDrive\Documents\Embarcadero\Studio\Projects\Project11.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.060,=E:\GitHub\oaip_alghoritms\2semester\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.759,C:\Users\beten\OneDrive\Documents\Embarcadero\Studio\Projects\Project11.dproj=E:\GitHub\oaip_alghoritms\2semester\OAiP_Algo.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.234,=E:\GitHub\oaip_alghoritms\2semester\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.870,=E:\GitHub\oaip_alghoritms\2semester\Unit2.pas</Transaction>
   </Transactions>
 </BorlandProject>
