@@ -8,6 +8,27 @@ Uses
     Unit1 In 'Unit1.pas',
     Unit2 In 'Unit2.pas';
 
+//Фибоначи через рекурсию
+Function Fibo(Num: Integer): Integer;
+Begin
+    If Num < 0 Then
+        Fibo := 0
+    Else
+        If (Num <= 1) Then
+            Fibo := 1
+        Else
+            Fibo := Fibo(Num - 1) + Fibo(Num - 2);
+End;
+
+//Факториал через рекурсию
+Function Fact(Num: Integer): Integer;
+Begin
+    If (Num > 1) Then
+        Fact := Num * Fact(Num - 1)
+    Else
+        Fact := 1;
+End;
+
 (* ---------------------https://pastebin.com/94Pi3PXu------------------------ *)
 // Задача 1. Найти количество различных символов в строке.
 // Задача 2. Самый долгий вызов.
