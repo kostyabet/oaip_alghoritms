@@ -74,6 +74,7 @@ Begin
         Read(F, Arr[I].Likes, Arr[I].Messages, Arr[I].Friends);
         Readln(F);
     End;
+    Close(F);
     Sort(Arr);
     For Var I := Low(Arr) To Low(Arr) + 4 Do
         Write(Arr[I].Name, ' ');

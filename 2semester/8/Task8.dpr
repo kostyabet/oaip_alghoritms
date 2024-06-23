@@ -44,6 +44,7 @@ Begin
     SetLength(Arr, Size);
     For Var I := Low(Arr) To High(Arr) Do
         Read(F, Arr[I]);
+    Close(F);
     SwapElements(Arr);
     For Var I := Low(Arr) To High(Arr) Do
         Write(Arr[I], ' ');

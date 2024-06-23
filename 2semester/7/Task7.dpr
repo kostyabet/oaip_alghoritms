@@ -47,6 +47,7 @@ Begin
     For Var I := Low(Matrix) To High(Matrix) Do
         For Var J := Low(Matrix[I]) To High(Matrix[I]) Do
             Read(F, Matrix[I, J]);
+    Close(F);
     Write(AmountOfIncreasing(Matrix));
     Readln;
 End.

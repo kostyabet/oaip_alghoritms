@@ -72,6 +72,7 @@ Begin
         Read(F, Arr[I].GroupNum, Arr[I].Year);
         Readln(F);
     End;
+    Close(F);
     Write(Arr[GetHighestIndexGroup(Arr)].GroupNum);
     Readln;
 

@@ -57,6 +57,7 @@ Begin
             Read(F, Matrix[I][J]);
         Readln(F);
     End;
+    Close(F);
     Write(AmountOfSimilar(Matrix));
     Readln;
 
