@@ -1,5 +1,13 @@
 # Выводы по теории
   
+## Правила хорошего тона
+
+По многочисленным заявкам стоит отметить то, что следующие записи равносильны:</br>
+    - __Text = TextFile__; </br>
+    - __Close = CloseFile__; </br>
+    - __Assign = AssignFile__. </br>
+Лучше использовать вариант справа, так как это более ёмко описывает производимую операцию.Ы
+
 ## Формальные параметры
 Procedure CalcSum(Res: Integer); <- `параметр-значение` </br>
 Procedure CalcSum(Var Res: Integer); <- `параметр-переменная` </br>
@@ -58,7 +66,8 @@ End;
 
 # Задачи
 
-Задачи разобраны на<a href = "https://pastebin.com/94Pi3PXu">PasteBin</a>, а также есть архив с такими же примерами в<a href = "https://drive.google.com/file/d/1wVcB9KqUBpLGRCB9tSabJQx4nZsNqwDa/view?usp=sharing">архиве</a>.
+Задачи разобраны на <a href = "https://pastebin.com/94Pi3PXu">PasteBin</a>, а также есть архив с такими же примерами в <a href = "https://drive.google.com/file/d/1wVcB9KqUBpLGRCB9tSabJQx4nZsNqwDa/view?usp=sharing">архиве</a>.</br>
+Автор PasteBin - <a href = "https://github.com/Old-Butt-Gold">Андрей Крутько</a>.
 
 `Задача 1.` Найти количество различных символов в строке.</br>
 `Задача 2.` Самый долгий вызов.</br>
