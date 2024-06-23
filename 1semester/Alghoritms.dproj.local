@@ -2,6 +2,6 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>1899.12.30 00:00:00.000.797,=E:\GitHub\oaip_alghoritms\basic_alghoritms\Alghoritms.todo</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.204,C:\Users\beten\OneDrive\Documents\Embarcadero\Studio\Projects\Project5.dproj=E:\GitHub\oaip_alghoritms\basic_alghoritms\Alghoritms.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.204,E:\GitHub\oaip_alghoritms\basic_alghoritms\Alghoritms.dproj=C:\Users\beten\OneDrive\Documents\Embarcadero\Studio\Projects\Project5.dproj</Transaction>
   </Transactions>
 </BorlandProject>
