@@ -42,14 +42,15 @@ Type
     TArr = Array Of TPerson;
 
 Procedure Sort(Var Arr: TArr);
+Var
+    I, J: Integer;
+    Temp: TPerson;
 Begin
-    For Var I := Low(Arr) To Low(Arr) + 4 Do
+    For I := Low(Arr) To Low(Arr) + 4 Do
     Begin
-        Var
         J := I + 1;
         While (J < Length(Arr)) And (Arr[J].Likes > Arr[I].Likes) Do
         Begin
-            Var
             Temp := Arr[I];
             Arr[I] := Arr[J];
             Arr[J] := Temp;
@@ -60,7 +61,7 @@ End;
 
 Var
     Arr: TArr;
-    N: Integer;
+    N, I: Integer;
     F: TextFile;
 
 Begin
@@ -68,7 +69,7 @@ Begin
     Reset(F);
     Readln(F, N);
     SetLength(Arr, N);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
     Begin
         Readln(F, Arr[I].Name);
         Read(F, Arr[I].Likes, Arr[I].Messages, Arr[I].Friends);
@@ -76,8 +77,9 @@ Begin
     End;
     Close(F);
     Sort(Arr);
-    For Var I := Low(Arr) To Low(Arr) + 4 Do
+    For I := Low(Arr) To Low(Arr) + 4 Do
         Write(Arr[I].Name, ' ');
+    Arr := Nil; // по сути тут ещё и string в record очищать надо, но это уже слишком
     Readln;
 
 End.

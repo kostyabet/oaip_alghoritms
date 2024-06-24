@@ -17,12 +17,13 @@
 
 Function CountOfDifSymb(Var Str: String): Integer;
 Var
+    I: Integer;
     Symb: Set Of Char;
     Count: Integer;
 Begin
     Count := 0;
     Symb := [];
-    For Var I := 1 To Length(Str) Do
+    For I := 1 To Length(Str) Do
     Begin
         If Not(Str[I] In Symb) Then
         Begin

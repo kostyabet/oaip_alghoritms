@@ -43,11 +43,11 @@ Const
 Function GetLowestPrice(Var Arr: TArr): Byte;
 Var
     Index: Byte;
-    Temp: Integer;
+    Temp, I: Integer;
 Begin
     Index := 0;
     Temp := Arr[0].Cost * Arr[0].Amount + Arr[0].Isi;
-    For Var I := Low(Arr) + 1 To High(Arr) Do
+    For I := Low(Arr) + 1 To High(Arr) Do
         If (Temp > Arr[I].Cost * Arr[I].Amount + Arr[I].Isi) Then
         Begin
             Index := I;
@@ -59,12 +59,13 @@ End;
 Var
     F: TextFile;
     Arr: TArr;
+    I: Integer;
 
 Begin
     SetLength(Arr, N);
     Assign(F, 'test.txt');
     Reset(F);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
     Begin
         ReadLn(F, Arr[I].Name);
         ReadLn(F, Arr[I].Author);
@@ -72,6 +73,7 @@ Begin
     End;
     Close(F);
     Write(Arr[GetLowestPrice(Arr)].Name);
+    Arr := nil;
     Readln;
 
 End.

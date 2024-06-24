@@ -26,14 +26,14 @@ Type
 
 Function AmountOfSimilar(Var Matrix: TMatrix): Integer;
 Var
-    Count: Integer;
+    Count, I, J: Integer;
     IsSimilar: Boolean;
 Begin
     Count := 0;
-    For Var I := Low(Matrix) + 1 To High(Matrix) Do
+    For I := Low(Matrix) + 1 To High(Matrix) Do
     Begin
         IsSimilar := True;
-        For Var J := Low(Matrix[I]) To High(Matrix[I]) Do
+        For J := Low(Matrix[I]) To High(Matrix[I]) Do
             IsSimilar := IsSimilar And (Matrix[I][J] = Matrix[0][J]);
         Count := Count + Ord(IsSimilar);
     End;
@@ -43,7 +43,7 @@ End;
 Var
     Matrix: TMatrix;
     F: TextFile;
-    M, N: Integer;
+    M, N, I, J: Integer;
 
 Begin
     Assign(F, 'test.txt');
@@ -51,14 +51,17 @@ Begin
     Read(F, M, N);
     SetLength(Matrix, M, N);
     Readln(F);
-    For Var I := Low(Matrix) To High(Matrix) Do
+    For I := Low(Matrix) To High(Matrix) Do
     Begin
-        For Var J := Low(Matrix[I]) To High(Matrix[I]) Do
+        For J := Low(Matrix[I]) To High(Matrix[I]) Do
             Read(F, Matrix[I][J]);
         Readln(F);
     End;
     Close(F);
     Write(AmountOfSimilar(Matrix));
+    For I := Low(Matrix) To High(Matrix) Do
+        Matrix[I] := Nil;
+    Matrix := Nil;
     Readln;
 
 End.

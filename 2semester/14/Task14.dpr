@@ -20,10 +20,12 @@ Type
     TMatrix = Array Of Array Of Integer;
 
 Procedure SearchSumAndMulti(Var Matrix: TMatrix; Var Sum, Multi: Integer; K: Integer);
+Var
+    I: Integer;
 Begin
     Multi := 1;
     Sum := 0;
-    For Var I := Low(Matrix[K]) To High(Matrix[K]) Do
+    For I := Low(Matrix[K]) To High(Matrix[K]) Do
     Begin
         Inc(Sum, Matrix[K, I]);
         Multi := Multi * Matrix[K, I];
@@ -33,7 +35,7 @@ End;
 Var
     Matrix: TMatrix;
     F: TextFile;
-    M, N, K: Integer;
+    M, N, K, I, J: Integer;
     Sum, Multi: Integer;
 
 Begin
@@ -41,13 +43,16 @@ Begin
     Reset(F);
     Read(F, M, N);
     SetLength(Matrix, M, N);
-    For Var I := Low(Matrix) To High(Matrix) Do
-        For Var J := Low(Matrix[I]) To High(Matrix[I]) Do
+    For I := Low(Matrix) To High(Matrix) Do
+        For J := Low(Matrix[I]) To High(Matrix[I]) Do
             Read(F, Matrix[I][J]);
     Read(F, K);
     Close(F);
     SearchSumAndMulti(Matrix, Sum, Multi, K - 1);
     Write('Сумма: ', Sum, '. Произведение: ', Multi, '.');
+    For I := Low(Matrix) To High(Matrix) Do
+        Matrix[I] := Nil;
+    Matrix := Nil;
     Readln;
 
 End.

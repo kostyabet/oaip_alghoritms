@@ -19,19 +19,19 @@ Type
 
 Function SearchSum(Var Arr: TArr; L, K: Integer): Integer;
 Var
-    Sum: Integer;
+    Sum, I: Integer;
 Begin
     Sum := 0;
-    For Var I := Low(Arr) To L - 1 Do
+    For I := Low(Arr) To L - 1 Do
         Inc(Sum, Arr[I]);
-    For Var I := K + 1 To High(Arr) Do
+    For I := K + 1 To High(Arr) Do
         Inc(Sum, Arr[I]);
     Result := Sum;
 End;
 
 Var
     Arr: TArr;
-    N, L, K: Integer;
+    N, I, L, K: Integer;
     F: TextFile;
 
 Begin
@@ -39,10 +39,11 @@ Begin
     Reset(F);
     Read(F, N, L, K);
     SetLength(Arr, N);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
         Read(F, Arr[I]);
     Close(F);
     Write(SearchSum(Arr, L - 1, K - 1));
+    Arr := Nil;
     Readln;
 
 End.

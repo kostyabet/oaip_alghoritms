@@ -27,11 +27,11 @@ Const
 
 Function GetLongest(Var Arr: TArr): Integer;
 Var
-    Index, Temp: Integer;
+    Index, Temp, I: Integer;
 Begin
     Index := 0;
     Temp := Arr[0].Long * Arr[0].Cost;
-    For Var I := Low(Arr) + 1 To High(Arr) Do
+    For I := Low(Arr) + 1 To High(Arr) Do
         If (Temp < Arr[I].Long * Arr[I].Cost) Then
         Begin
             Index := I;
@@ -43,17 +43,18 @@ End;
 Var
     F: TextFile;
     Arr: TArr;
-    Index: Integer;
+    Index, I: Integer;
 
 Begin
     SetLength(Arr, Len);
     Assign(F, 'test.txt');
     Reset(F);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
         Read(F, Arr[I].Index, Arr[I].Long, Arr[I].Cost);
     Close(F);
     Index := GetLongest(Arr);
     Write(Arr[Index].Index, ' ', Arr[Index].Long, ' ', Arr[Index].Cost);
+    Arr := nil;
     Readln;
 
 End.

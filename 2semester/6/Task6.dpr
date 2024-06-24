@@ -20,11 +20,11 @@ Type
 
 Procedure SearchMinMax(Var Arr: TArr; Var Min, Max: Integer);
 Var
-    Temp: Integer;
+    Temp, I: Integer;
 Begin
     Min := 0;
     Max := 0;
-    For Var I := Low(Arr) + 1 To High(Arr) Do
+    For I := Low(Arr) + 1 To High(Arr) Do
     Begin
         If (Arr[I] > Arr[Max]) Then
             Max := I;
@@ -40,8 +40,10 @@ Begin
 End;
 
 Procedure MakeZeroInArr(Var Arr: TArr; Min, Max: Integer);
+Var
+    I: Integer;
 Begin
-    For Var I := Min + 1 To Max - 1 Do
+    For I := Min + 1 To Max - 1 Do
         Arr[I] := 0;
 End;
 
@@ -49,20 +51,21 @@ Var
     F: TextFile;
     Size: Integer;
     Arr: TArr;
-    Min, Max: Integer;
+    Min, Max, I: Integer;
 
 Begin
     Assign(F, 'test.txt');
     Reset(F);
     Read(F, Size);
     SetLength(Arr, Size);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
         Read(F, Arr[I]);
     Close(F);
     SearchMinMax(Arr, Min, Max);
     MakeZeroInArr(Arr, Min, Max);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
         Write(Arr[I], ' ');
+    Arr := Nil;
     Readln;
 
 End.

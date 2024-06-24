@@ -34,7 +34,7 @@ End;
 
 Var
     Arr: TArr;
-    Size: Integer;
+    Size, I: Integer;
     F: TextFile;
 
 Begin
@@ -42,12 +42,13 @@ Begin
     Reset(F);
     Read(F, Size);
     SetLength(Arr, Size);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
         Read(F, Arr[I]);
     Close(F);
     SwapElements(Arr);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
         Write(Arr[I], ' ');
+    Arr := Nil;
     Readln;
 
 End.

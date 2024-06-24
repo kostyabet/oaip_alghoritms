@@ -20,14 +20,14 @@ Type
 
 Function AmountOfIncreasing(Var Matrix: TMatrix): Integer;
 Var
-    Count: Integer;
+    Count, I, J: Integer;
     IsIncreasing: Boolean;
 Begin
     Count := 0;
-    For Var I := Low(Matrix) To High(Matrix) Do
+    For I := Low(Matrix) To High(Matrix) Do
     Begin
         IsIncreasing := True;
-        For Var J := Low(Matrix[I]) To High(Matrix[I]) - 1 Do
+        For J := Low(Matrix[I]) To High(Matrix[I]) - 1 Do
             IsIncreasing := IsIncreasing And (Matrix[I][J] < Matrix[I][J + 1]);
         Inc(Count, Ord(IsIncreasing));
     End;
@@ -36,7 +36,7 @@ End;
 
 Var
     F: TextFile;
-    M, N: Integer;
+    M, N, I, J: Integer;
     Matrix: TMatrix;
 
 Begin
@@ -44,10 +44,14 @@ Begin
     Reset(F);
     Read(F, M, N);
     SetLength(Matrix, M, N);
-    For Var I := Low(Matrix) To High(Matrix) Do
-        For Var J := Low(Matrix[I]) To High(Matrix[I]) Do
+    For I := Low(Matrix) To High(Matrix) Do
+        For J := Low(Matrix[I]) To High(Matrix[I]) Do
             Read(F, Matrix[I, J]);
     Close(F);
     Write(AmountOfIncreasing(Matrix));
+    For I := Low(Matrix) To High(Matrix) Do
+        Matrix[I] := Nil;
+    Matrix := Nil;
     Readln;
+
 End.

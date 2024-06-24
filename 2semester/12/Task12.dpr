@@ -23,10 +23,11 @@ Type
 Function CreateArray(Var A: TArr; Size: Integer): TArr;
 Var
     Res: TArr;
+    I: Integer;
 Begin
     SetLength(Res, Size);
     Res[0] := A[0];
-    For Var I := Low(A) + 1 To High(A) Do
+    For I := Low(A) + 1 To High(A) Do
         Res[I] := Res[I - 1] + A[I];
     Result := Res;
 End;
@@ -34,19 +35,20 @@ End;
 Var
     F: TextFile;
     A, B: TArr;
-    N: Integer;
+    N, I: Integer;
 
 Begin
     Assign(F, 'test.txt');
     Reset(F);
     Read(F, N);
     SetLength(A, N);
-    For Var I := Low(A) To High(A) Do
+    For I := Low(A) To High(A) Do
         Read(F, A[I]);
     Close(F);
     B := CreateArray(A, N);
-    For Var I := Low(B) To High(B) Do
+    For I := Low(B) To High(B) Do
         Write(B[I], ' ');
+    A := Nil;
     Readln;
 
 End.
