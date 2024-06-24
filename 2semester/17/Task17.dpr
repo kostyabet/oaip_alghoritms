@@ -52,6 +52,9 @@ Begin
     Close(F);
     SearchHighestString(Matrix, Sum, Index);
     Write('Сумма: ', Sum, '. Номер строки: ', Index + 1, '.');
+    For I := Low(Matrix) To High(Matrix) Do
+        Matrix[I] := Nil;
+    Matrix := Nil;
     Readln;
 
 End.

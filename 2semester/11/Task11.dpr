@@ -70,6 +70,7 @@ Begin
     Close(F);
     Res := SearchDot(A, B);
     Write('Координаты точки ближайшей к B: ', Res.X:5:3, ' ', Res.Y:5:3);
+    A := Nil;
     Readln;
 
 End.

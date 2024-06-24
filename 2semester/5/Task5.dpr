@@ -59,6 +59,9 @@ Begin
     End;
     Close(F);
     Write(AmountOfSimilar(Matrix));
+    For I := Low(Matrix) To High(Matrix) Do
+        Matrix[I] := Nil;
+    Matrix := Nil;
     Readln;
 
 End.

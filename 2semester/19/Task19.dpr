@@ -88,6 +88,7 @@ Begin
     Close(F);
     FindBestDepartment(Arr, Department, AverageSalary);
     Write('На предприятии ', Department, ' средняя зароботная плата = ', AverageSalary);
+    Arr := Nil;
     Readln;
 
 End.

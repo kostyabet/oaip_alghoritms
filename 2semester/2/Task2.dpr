@@ -54,6 +54,7 @@ Begin
     Close(F);
     Index := GetLongest(Arr);
     Write(Arr[Index].Index, ' ', Arr[Index].Long, ' ', Arr[Index].Cost);
+    Arr := nil;
     Readln;
 
 End.

@@ -74,6 +74,7 @@ Begin
     End;
     Close(F);
     Write(Arr[GetHighestIndexGroup(Arr)].GroupNum);
+    Arr := Nil;
     Readln;
 
 End.

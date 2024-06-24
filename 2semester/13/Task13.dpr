@@ -49,6 +49,7 @@ Begin
     Close(F);
     MaxSupportElement(Arr, First, Second);
     Write(First, ' ', Second);
+    Arr := Nil;
     Readln;
 
 End.

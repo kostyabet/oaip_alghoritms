@@ -43,6 +43,7 @@ Begin
         Read(F, Arr[I]);
     Close(F);
     Write(SearchSum(Arr, L - 1, K - 1));
+    Arr := Nil;
     Readln;
 
 End.

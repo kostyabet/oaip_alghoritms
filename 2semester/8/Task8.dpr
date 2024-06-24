@@ -48,6 +48,7 @@ Begin
     SwapElements(Arr);
     For I := Low(Arr) To High(Arr) Do
         Write(Arr[I], ' ');
+    Arr := Nil;
     Readln;
 
 End.

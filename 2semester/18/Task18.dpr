@@ -79,6 +79,7 @@ Begin
     Close(F);
     StudentIndex := SearchStudentIndex(Arr);
     Write(Arr[StudentIndex].Name);
+    Arr := Nil; // по сути и тут нужно в record string очищать, мне лень.
     Readln;
 
 End.

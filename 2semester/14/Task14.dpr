@@ -50,6 +50,9 @@ Begin
     Close(F);
     SearchSumAndMulti(Matrix, Sum, Multi, K - 1);
     Write('Сумма: ', Sum, '. Произведение: ', Multi, '.');
+    For I := Low(Matrix) To High(Matrix) Do
+        Matrix[I] := Nil;
+    Matrix := Nil;
     Readln;
 
 End.

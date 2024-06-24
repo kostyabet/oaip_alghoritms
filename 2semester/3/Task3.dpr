@@ -73,6 +73,7 @@ Begin
     End;
     Close(F);
     Write(Arr[GetLowestPrice(Arr)].Name);
+    Arr := nil;
     Readln;
 
 End.

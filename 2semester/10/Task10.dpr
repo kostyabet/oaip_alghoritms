@@ -79,6 +79,7 @@ Begin
     Sort(Arr);
     For I := Low(Arr) To Low(Arr) + 4 Do
         Write(Arr[I].Name, ' ');
+    Arr := Nil; // по сути тут ещё и string в record очищать надо, но это уже слишком
     Readln;
 
 End.

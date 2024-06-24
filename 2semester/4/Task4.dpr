@@ -42,6 +42,7 @@ Begin
         Read(F, Arr[I]);
     Close(F);
     Write(SumInArray(Arr, K));
+    Arr := nil;
     Readln;
 
 End.

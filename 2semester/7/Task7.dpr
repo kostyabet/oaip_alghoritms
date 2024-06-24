@@ -49,5 +49,9 @@ Begin
             Read(F, Matrix[I, J]);
     Close(F);
     Write(AmountOfIncreasing(Matrix));
+    For I := Low(Matrix) To High(Matrix) Do
+        Matrix[I] := Nil;
+    Matrix := Nil;
     Readln;
+
 End.

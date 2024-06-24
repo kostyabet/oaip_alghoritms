@@ -48,6 +48,7 @@ Begin
     B := CreateArray(A, N);
     For I := Low(B) To High(B) Do
         Write(B[I], ' ');
+    A := Nil;
     Readln;
 
 End.
