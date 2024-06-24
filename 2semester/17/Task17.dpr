@@ -19,14 +19,14 @@ Type
 
 Procedure SearchHighestString(Matrix: TMatrix; Var Sum, Index: Integer);
 Var
-    CurentSum: Integer;
+    CurentSum, I, J: Integer;
 Begin
     Sum := -MaxInt;
     Index := -1;
-    For Var I := Low(Matrix) To High(Matrix) Do
+    For I := Low(Matrix) To High(Matrix) Do
     Begin
         CurentSum := 0;
-        For Var J := Low(Matrix[I]) To High(Matrix[I]) Do
+        For J := Low(Matrix[I]) To High(Matrix[I]) Do
             Inc(CurentSum, Matrix[I][J]);
         If (CurentSum > Sum) Then
         Begin
@@ -38,7 +38,7 @@ End;
 
 Var
     Matrix: TMatrix;
-    M, N, Sum, Index: Integer;
+    M, N, Sum, Index, I, J: Integer;
     F: TextFile;
 
 Begin
@@ -46,8 +46,8 @@ Begin
     Reset(F);
     Read(F, M, N);
     SetLength(Matrix, M, N);
-    For Var I := Low(Matrix) To High(Matrix) Do
-        For Var J := Low(Matrix[I]) To High(Matrix[I]) Do
+    For I := Low(Matrix) To High(Matrix) Do
+        For J := Low(Matrix[I]) To High(Matrix[I]) Do
             Read(F, Matrix[I, J]);
     Close(F);
     SearchHighestString(Matrix, Sum, Index);

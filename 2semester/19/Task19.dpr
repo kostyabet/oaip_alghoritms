@@ -45,14 +45,14 @@ Type
 
 Procedure FindBestDepartment(Var Arr: TArr; Var Department: String; Var AverageSalary: Integer);
 Var
-    Count, Salary: Integer;
+    Count, Salary, I, J: Integer;
 Begin
     AverageSalary := 0;
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
     Begin
         Count := 0;
         Salary := 0;
-        For Var J := Low(Arr) To High(Arr) Do
+        For J := Low(Arr) To High(Arr) Do
             If (Arr[I].Department = Arr[J].Department) Then
             Begin
                 Inc(Salary, Arr[J].Salary);
@@ -69,7 +69,7 @@ End;
 
 Var
     Arr: TArr;
-    Size, AverageSalary: Integer;
+    Size, I, AverageSalary: Integer;
     Department: String;
     F: TextFile;
 
@@ -78,7 +78,7 @@ Begin
     Reset(F);
     Readln(F, Size);
     SetLength(Arr, Size);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
     Begin
         Readln(F, Arr[I].Surname);
         Readln(F, Arr[I].Department);

@@ -10,11 +10,11 @@
   Файл:
 
   5
- -2 -2
+  -2 -2
   1 -1
   5  1
   0  2
- -2  1
+  -2  1
   0  0
 *)
 
@@ -36,9 +36,10 @@ Var
     Res: TCoord;
     CurentLen, Len: Double;
     X2, Y2: Real;
+    I: Integer;
 Begin
     Len := Math.MaxDouble;
-    For Var I := Low(A) To High(A) Do
+    For I := Low(A) To High(A) Do
     Begin
         X2 := Math.Power(Abs(A[I].X - B.X), 2);
         Y2 := Math.Power(Abs(A[I].Y - B.Y), 2);
@@ -53,7 +54,7 @@ Begin
 End;
 
 Var
-    ASize: Integer;
+    ASize, I: Integer;
     A: TA;
     B, Res: TCoord;
     F: TextFile;
@@ -63,7 +64,7 @@ Begin
     Reset(F);
     Read(F, ASize);
     SetLength(A, ASize);
-    For Var I := Low(A) To High(A) Do
+    For I := Low(A) To High(A) Do
         Read(F, A[I].X, A[I].Y);
     Read(F, B.X, B.Y);
     Close(F);

@@ -20,17 +20,17 @@ Type
 
 Function SumInArray(Var Arr: TArr; Size: Integer): Integer;
 Var
-    Res: Integer;
+    Res, I: Integer;
 Begin
     Res := 0;
-    For Var I := 0 To Size - 1 Do
+    For I := 0 To Size - 1 Do
         Inc(Res, Arr[I]);
     Result := Res;
 End;
 
 Var
     F: TextFile;
-    K: Integer;
+    K, I: Integer;
     Arr: TArr;
 
 Begin
@@ -38,7 +38,7 @@ Begin
     Reset(F);
     Read(F, K);
     SetLength(Arr, K);
-    For Var I := 0 To K - 1 Do
+    For I := 0 To K - 1 Do
         Read(F, Arr[I]);
     Close(F);
     Write(SumInArray(Arr, K));

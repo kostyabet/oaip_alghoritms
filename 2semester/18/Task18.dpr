@@ -41,15 +41,14 @@ Type
 
 Function SearchStudentIndex(Var Arr: TArr): Integer;
 Var
-    Count, MaxCount: Integer;
-    Res: Integer;
+    Count, MaxCount, Res, I, J: Integer;
 Begin
     Res := 0;
     Count := -1;
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
     Begin
         Count := 0;
-        For Var J := Low(Arr) To High(Arr) Do
+        For J := Low(Arr) To High(Arr) Do
             Inc(Count, Ord(Arr[J].Name = Arr[I].Name));
         If (Count > MaxCount) Then
         Begin
@@ -63,7 +62,7 @@ End;
 Var
     Arr: TArr;
     F: TextFile;
-    Size: Integer;
+    Size, I: Integer;
     StudentIndex: Integer;
 
 Begin
@@ -71,7 +70,7 @@ Begin
     Reset(F);
     Readln(F, Size);
     SetLength(Arr, Size);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
     Begin
         Readln(F, Arr[I].Name);
         Readln(F, Arr[I].Date);

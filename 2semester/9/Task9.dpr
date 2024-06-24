@@ -37,14 +37,14 @@ Type
 
 Function GetHighestIndexGroup(Var Arr: TArr): Integer;
 Var
-    Index, Count, Curent: Integer;
+    Index, Count, Curent, I, J: Integer;
 Begin
     Index := 0;
     Curent := 0;
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
     Begin
         Count := 0;
-        For Var J := Low(Arr) To High(Arr) Do
+        For J := Low(Arr) To High(Arr) Do
             Inc(Count, Ord(Arr[J].GroupNum = Arr[I].GroupNum));
         If (Count >= Curent) Then
         Begin
@@ -56,7 +56,7 @@ Begin
 End;
 
 Var
-    N: Integer;
+    N, I: Integer;
     Arr: TArr;
     F: TextFile;
 
@@ -66,7 +66,7 @@ Begin
     Read(F, N);
     Readln(F);
     SetLength(Arr, N);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
     Begin
         Readln(F, Arr[I].FIO);
         Read(F, Arr[I].GroupNum, Arr[I].Year);

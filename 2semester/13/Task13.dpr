@@ -18,10 +18,12 @@ Type
     TArr = Array Of Integer;
 
 Procedure MaxSupportElement(Var Arr: TArr; Var Frst, Scnd: Integer);
+Var
+    I: Integer;
 Begin
     Frst := 0;
     Scnd := 1;
-    For Var I := Low(Arr) + 1 To High(Arr) - 1 Do
+    For I := Low(Arr) + 1 To High(Arr) - 1 Do
     Begin
         If (Arr[I] + Arr[I + 1] > Arr[Frst] + Arr[Scnd]) Then
         Begin
@@ -35,13 +37,14 @@ Var
     F: TextFile;
     N, First, Second: Integer;
     Arr: TArr;
+    I: Integer;
 
 Begin
     Assign(F, 'test.txt');
     Reset(F);
     Read(F, N);
     SetLength(Arr, N);
-    For Var I := Low(Arr) To High(Arr) Do
+    For I := Low(Arr) To High(Arr) Do
         Read(F, Arr[I]);
     Close(F);
     MaxSupportElement(Arr, First, Second);
